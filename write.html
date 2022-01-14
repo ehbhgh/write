@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>信封</title>
+    <link rel="stylesheet" href="./wite.css">
+    <!-- <link rel="stylesheet" href="./css/frozen.css"> -->
+    <script src='./flexible.js'></script>
+    <style>
+        /* body {
+            background-color: black;
+            margin: 0;
+            position: relative; */
+
+        /* } */
+
+        /* .sc {
+            animation: rainbow 3s linear infinite alternate;
+        } */
+
+
+
+        /* 
+     .envlope-wrapper{
+         width: 4rem;
+         height: 5.3333rem;
+         background-color: aqua;
+         overflow: hidden;
+     } */
+        .bound {
+            animation: bround 1s linear forwards;
+            animation-delay: 3.5s;
+        }
+
+        @keyframes bround {
+            0% {
+                opacity: 1;
+                left: 50%;
+                bottom: 3.3333rem;
+                transform: scale(1);
+            }
+
+            25% {
+                opacity: .75;
+                left: 62.5%;
+                bottom: 7rem;
+                transform: scale(.75);
+            }
+
+            50% {
+                opacity: .5;
+                left: 75%;
+                bottom: 9.8rem;
+                transform: scale(.5);
+            }
+
+            75% {
+                opacity: .25;
+                left: 87.5%;
+                bottom: 11.5rem;
+                transform: scale(.25);
+            }
+
+            100% {
+                opacity: 0;
+                left: 100%;
+                bottom: 12.5rem;
+                transform: scale(0);
+
+            }
+        }
+        .letter p{
+            width: 80%;
+            height: .0133rem;
+            margin: .3rem auto;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="envelope" class="open bound">
+        <div class="front flap"></div>
+        <div class="front pocket"></div>
+        <div class="letter" id='letter'>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+        </div>
+    </div>
+
+
+    <script src='./jquery.min.js'></script>
+    <script>
+        let envelope = $("#envelope")
+        let letter = document.getElementById('letter')
+        let box = document.querySelector('#box')
+        letter.addEventListener('animationend', () => {
+            envelope.addClass("close")
+                .removeClass("open");
+        })
+
+    </script>
+</body>
+
+</html>
